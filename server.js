@@ -23,7 +23,7 @@ app.get('/', (request, response) => {
   let address = `https://api.darksky.net/forecast/${apiKey}/${lat},${lon}`
   fetch(address)
     .then(response => response.json())
-    .then(weatherInfo => response.send(weatherInfo))
+    .then(weatherInfo => response.send(weatherInfo['hourly']))
     .catch(error => console.log({ error }));
 });
 
