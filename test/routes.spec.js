@@ -15,11 +15,12 @@ describe('/', () => {
         .end((err, response) => {
           response.should.have.status(200);
           response.should.be.json;
-          // response.body[0].should.have.property('id');
-          // response.body[0].should.have.property('name');
-          // response.body[0].should.have.property('artist_name');
-          // response.body[0].should.have.property('genre');
-          // response.body[0].should.have.property('song_rating');
+          console.log(response.body['data'].length);
+          response.body['data'][0].should.have.property('time');
+          response.body['data'][0].should.have.property('summary');
+          response.body['data'][0].should.have.property('icon');
+          response.body['data'][0].should.have.property('temperature');
+          response.body['data'].length.should.eq(49);
           done()
         });
     });
