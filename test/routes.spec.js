@@ -15,7 +15,6 @@ describe('/', () => {
         .end((err, response) => {
           response.should.have.status(200);
           response.should.be.json;
-          console.log(response.body['data'].length);
           response.body['data'][0].should.have.property('time');
           response.body['data'][0].should.have.property('summary');
           response.body['data'][0].should.have.property('icon');
